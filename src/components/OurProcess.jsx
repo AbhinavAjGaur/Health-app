@@ -14,7 +14,6 @@ export default function OurProcess() {
   };
 
   // Mobile Swipe functionality
-  const [touchPosition, setTouchPosition] = useState(0);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
   const carousalRef = useRef(null);
@@ -34,12 +33,12 @@ export default function OurProcess() {
     const minSwipeDistance = 50;
 
     if (swipeDistance > minSwipeDistance) {
-      if (touchPosition > 0){
-        setTouchPosition(touchPosition - 1);
+      if (index > 0){
+        setIndex(index - 1);
       }
     } else if (swipeDistance < -minSwipeDistance) {
-      if (touchPosition < slides.length -1){
-        setTouchPosition(touchPosition + 1);
+      if (index < slides.length -1){
+        setIndex(index + 1);
       }
   }
 };
