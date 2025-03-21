@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { slides } from '../constants/constants';
 
@@ -13,37 +13,7 @@ export default function OurProcess() {
     setIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
   };
 
-  // Mobile Swipe functionality
-  const touchStartX = useRef(0);
-  const touchEndX = useRef(0);
-  const carousalRef = useRef(null);
-
-  // Handle touch events
-  const handleTouchStart = (e) => {
-    touchStartX.current = e.touches[0].clientX;
-  };
-
-  const handleTouchMove = (e) => {
-    touchEndX.current = e.touches[0].clientX;
-  };
-
-  const handleTouchEnd = () => {
-
-    const swipeDistance = touchStartX.current - touchEndX.current;
-    const minSwipeDistance = 50;
-
-    if (swipeDistance > minSwipeDistance) {
-      if (index > 0){
-        setIndex(index - 1);
-      }
-    } else if (swipeDistance < -minSwipeDistance) {
-      if (index < slides.length -1){
-        setIndex(index + 1);
-      }
-  }
-};
-
-  return (
+   return (
     <div
       id="process"
       className="w-full py-12 px-4 text-white relative max-w-full mx-auto">
@@ -77,12 +47,8 @@ export default function OurProcess() {
       {/* Carousel Container */}
       <div className="relative md:flex items-center justify-center max-w-5xl mx-auto overflow-hidden">
         <div 
-          ref={carousalRef}
           className="flex transition-transform duration-500 ease-in-out gap-4"
           style={{ transform: `translateX(-${index * 50}%)` }}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
         >
           {slides.map((slide) => (
             <div key={slide.id} className={`md:flex-shrink-0 w-1/2 sm:w-1/2 p-4 ${slide.bgColor} rounded-3xl flex flex-col text-black`}>
