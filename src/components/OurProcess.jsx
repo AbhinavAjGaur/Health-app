@@ -45,34 +45,35 @@ export default function OurProcess() {
       </div>
 
       {/* Carousel Container */}
-     {/* Carousel Container */}
-<div className="relative md:flex items-center justify-center max-w-5xl mx-auto overflow-hidden">
-  <div
-    className="flex transition-transform duration-500 ease-in-out gap-4"
-    style={{ transform: `translateX(-${index * 50}%)` }}
-  >
-    {slides.map((slide) => (
-      <div key={slide.id} className={`md:flex-shrink-0 w-1/2 sm:w-1/2 p-4 ${slide.bgColor} rounded-3xl text-black`}>
-        <div className="flex flex-col md:flex-row h-full">
-          {/* Text Section */}
-          <div className="w-full p-4 pb-2 md:pb-4">
-            <h4 className="text-xs uppercase opacity-75 mb-1">{slide.title}</h4>
-            <h2 className="text-lg font-black uppercase leading-tight">{slide.heading}</h2>
-          </div>
+      <div className="relative md:flex items-center justify-center max-w-5xl mx-auto overflow-hidden">
+        <div
+          className="flex transition-transform duration-500 ease-in-out gap-4"
+          style={{ transform: `translateX(-${index * 50}%)` }}
+        >
+          {slides.map((slide) => (
+            <div key={slide.id} className={`md:flex-shrink-0 w-1/2 sm:w-1/2 p-4 ${slide.bgColor} rounded-3xl text-black`}>
+              <div className="flex flex-col md:flex-row h-full">
+                {/* Text Section */}
+                <div className="w-full p-4 pb-2 md:pb-4">
+                  <h4 className="text-xs uppercase opacity-75 mb-1">{slide.title}</h4>
+                  <h2 className="text-lg font-black uppercase leading-tight">{slide.heading}</h2>
+                </div>
 
-          {/* Image Section */}
-          <div className="w-full mt-auto md:mt-0">
-            <img
-              src={slide.image}
-              alt={slide.title}
-              className="w-full h-full object-cover rounded-3xl"
-            />
-          </div>
+                {/* Image Section */}
+                <div className="w-full mt-auto md:mt-0">
+                  <div className="h-48 sm:h-64 md:h-72 overflow-hidden rounded-3xl">
+                    <img
+                      src={slide.image}
+                      alt={slide.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-    ))}
-  </div>
-</div>
 
       {/* Navigation Arrows */}
       <div className="flex justify-between items-center mt-4">
